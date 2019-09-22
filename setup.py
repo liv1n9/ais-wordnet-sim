@@ -5,17 +5,15 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='ais-wordnet-sim',
-    version='1.2',
+    version='1.4',
     author='Tan Nguyen',
     author_email='livw08@gmail.com',
     description='AIS Wordnet tool',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/liv1n9/ais-wordnet-sim',
     packages=setuptools.find_packages(),
     classifiers=[
          "Programming Language :: Python :: 3",
-         "License :: OSI Approved :: MIT License",
          "Operating System :: OS Independent",
     ],
     install_requires=[

@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from urllib.parse import quote
 from .model import Word, Synonym, Category
+from .config import USERNAME, PASSWORD
 
 CONNECTION_STRING = 'mongodb+srv://{0}:{1}@cluster0-syxu1.mongodb.net/test'
 DATABASE_NAME = 'wordnet'
@@ -8,7 +9,7 @@ DATABASE_NAME = 'wordnet'
 class Service:
     COLLECTION_NAME = ''
 
-    def __init__(self, username='user', password='@is2019'):
+    def __init__(self, username=USERNAME, password=PASSWORD):
         connection_string = CONNECTION_STRING.format(quote(username, safe=''), quote(password, safe=''))
         self.collection = MongoClient(connection_string)[DATABASE_NAME][self.COLLECTION_NAME]
 
