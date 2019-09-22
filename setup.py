@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='ais-wordnet-sim',
-    version='1.1',
+    version='1.2',
     author='Tan Nguyen',
     author_email='livw08@gmail.com',
     description='AIS Wordnet tool',
@@ -21,6 +21,7 @@ setuptools.setup(
     install_requires=[
         'underthesea',
         'pymongo',
-        'dnspython'
+        'dnspython',
+        'xlrd'
     ]
 )
