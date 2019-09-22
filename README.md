@@ -50,6 +50,7 @@ result
 ### Create Synonyms database from excel file
 
 Note: Drop old database before creating new database
+
 Example Exel format:
 - Sheet: n, a, v, r, e
 - Each row of sheet: one or multiple words, synonyms words follow original word
