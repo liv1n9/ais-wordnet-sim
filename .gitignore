@@ -1,1 +1,4 @@
 .idea
+ais_wordnet_sim.egg-info
+build
+dist

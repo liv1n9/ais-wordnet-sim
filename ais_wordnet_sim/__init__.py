@@ -1,3 +1,3 @@
-from ais_wordnet_sim.similar_sentences import similar_sentences, generate_category
+from ais_wordnet_sim.similar_sentences import *
 from ais_wordnet_sim.aiml_enrich import aiml_enrich
 from ais_wordnet_sim.utility import add_synonyms_excel
