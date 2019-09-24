@@ -60,3 +60,4 @@ from ais_wordnet_sim import add_synonyms_excel
 file = 'wordnet.xlsx'
 add_synonyms_excel(file)
 ```
+# ais-wordnet-sim
