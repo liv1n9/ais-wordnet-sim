@@ -1,10 +1,7 @@
 from pymongo import MongoClient
 from urllib.parse import quote
 from .model import Word, Synonym, Category
-from .config import USERNAME, PASSWORD
-
-CONNECTION_STRING = 'mongodb+srv://{0}:{1}@cluster0-syxu1.mongodb.net/test'
-DATABASE_NAME = 'wordnet'
+from .config import USERNAME, PASSWORD, CONNECTION_STRING, DATABASE_NAME
 
 class Service:
     COLLECTION_NAME = ''
@@ -24,10 +21,7 @@ class WordsService(Service):
         result = self.find_one(word, pos)
         if result is None:
             word_object = Word(word, pos)
-            temp = self.collection.insert_one(word_object.to_json())
-            word_object._id = temp.inserted_id
-            result = word_object.to_json()
-        return result
+            self.collection.insert_one(word_object.to_json())
 
     def find_one(self, word=None, pos=None, _id=None):
         if _id is None:
@@ -45,10 +39,7 @@ class SynonymsService(Service):
         result = self.find_one(id_word_1, id_word_2)
         if result is None:
             synonym_object = Synonym(id_word_1, id_word_2)
-            temp = self.collection.insert_one(synonym_object.to_json())
-            synonym_object._id = temp.inserted_id
-            result = synonym_object.to_json()
-        return result
+            self.collection.insert_one(synonym_object.to_json())
 
     def find_one(self, id_word_1=None, id_word_2=None, _id=None):
         if _id is None:
@@ -71,11 +62,9 @@ class CategoriesService(Service):
     def __init__(self):
         super().__init__()
     
-    def insert_one(self, question_list, answer):
-        category_object = Category(question_list, answer)
-        temp = self.collection.insert_one(category_object.to_json())
-        category_object._id = temp.inserted_id
-        return category_object
+    def insert_one(self, question_list, answer, topic):
+        category_object = Category(question_list, answer, topic)
+        self.collection.insert_one(category_object.to_json())
 
     def find(self):
         return self.collection.find()

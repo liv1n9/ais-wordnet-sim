@@ -1,2 +1,4 @@
-USERNAME = 'user'
-PASSWORD = '@is2019'
+CONNECTION_STRING = 'xxx'
+DATABASE_NAME = 'xxx'
+USERNAME = 'xxx'
+PASSWORD = 'xxx'

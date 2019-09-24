@@ -18,7 +18,10 @@ def test_3():
     add_synonyms_excel('wordnet10-4-2019.xlsx')
 
 def test_4():
-    generate_category('Thế lực thù đich có những âm mưu gì', 'Âm mưu phá hoại nhà nước')
+    question = 'Thế lực thù đich có những âm mưu gì'
+    answer = 'Âm mưu phá hoại nhà nước'
+    topic = 'Phản động'
+    generate_category(question, answer, topic)
 
 def test_5():
     print(get_category_data())

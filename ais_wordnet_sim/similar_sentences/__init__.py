@@ -8,9 +8,9 @@ def similar_sentences(sentence):
     model_similar.compute()
     return model_similar.similar_list()
 
-def generate_category(question, answer):
+def generate_category(question, answer, topic):
     question_list = similar_sentences(question)
-    CATEGORIES_SERVICE.insert_one(question_list, answer)
+    CATEGORIES_SERVICE.insert_one(question_list, answer, topic)
 
 def get_category_data():
     return list(CATEGORIES_SERVICE.find())

@@ -17,7 +17,8 @@ class Synonym(Model):
         self.id_word_2 = id_word_2
 
 class Category(Model):
-    def __init__(self, question_list, answer):
+    def __init__(self, question_list, answer, topic):
         self.question_list = question_list
         self.answer = answer
+        self.topic = topic
 
