@@ -12,12 +12,12 @@ def uts_pos_convert(pos):
 
 class SimilarSentences:
 
-    def __init__(self, sentence):
+    def __init__(self, sentence, limit=1000):
         self.sentence = str.lower(sentence)
         self._word_syn_list = []
         self._current_index = []
         self._similar_list = []
-        self._limit = 1000
+        self._limit = limit
 
     def _preprocess(self):
         tokens = underthesea.pos_tag(self.sentence)

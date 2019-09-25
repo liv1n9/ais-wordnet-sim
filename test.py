@@ -7,12 +7,12 @@ from underthesea import pos_tag
 
 def test_1():
     sentence = "Thế lực thù đich có những âm mưu gì"
-    temp = similar_sentences(sentence)
+    temp = similar_sentences(sentence, limit=5)
     print(temp)
 
 
 def test_2():
-    aiml_enrich('temp.aiml')
+    aiml_enrich('test.aiml')
 
 def test_3():
     add_synonyms_excel('wordnet10-4-2019.xlsx')
@@ -27,4 +27,4 @@ def test_5():
     print(get_category_data())
 
 if __name__ == "__main__":
-    test_5()
+    test_1()

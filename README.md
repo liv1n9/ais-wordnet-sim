@@ -2,7 +2,7 @@
 
 ___
 
-## Install
+### Install
 
 ```
 pip install ais-wordnet-sim
@@ -18,21 +18,23 @@ Get a list which contains similar sentences (include original sentence)
 ```python
 from ais_wordnet_sim import similar_sentences
 sentence = 'Thế lực thù đich có những âm mưu gì'
-result = similar_sentences(sentence)
+# default limit = 1000
+result = similar_sentences(sentence, limit=5)
 result
 
->>> ['thế lực thù đich có những âm mưu gì', 'thế lực thù đich có những thủ đoạn gì', 'thế lực thù đich có những mưu kế gì', 'thế lực thù đich có những mưu mẹo gì', 'thế lực thù đich có những mưu mô gì', 'thế lực thù đich có những mưu đồ gì', 'thế lực thù đich có những mánh khóe gì', 'thế lực thù đich có những kế sách gì', 'thế lực thù đich sở hữu những âm mưu gì', 'thế lực thù đich sở hữu những thủ đoạn gì', 'thế lực thù đich sở hữu những mưu kế gì', 'thế lực thù đich sở hữu những mưu mẹo gì', 'thế lực thù đich sở hữu những mưu mô gì', 'thế lực thù đich sở hữu những mưu đồ gì', 'thế lực thù đich sở hữu những mánh khóe gì', 'thế lực thù đich sở hữu những kế sách gì']
+>>> ['thế lực thù đich có những âm mưu gì', 'thế lực thù đich có những thủ đoạn gì', 'thế lực thù đich có những mưu kế gì', 'thế lực thù đich có những mưu mẹo gì', 'thế lực thù đich có những mưu mô gì']
 ```
 
 ### Create a category
 
-Create a Category: `{ list_question, answer }` from a question and an answer
+Create a Category: `{ question_list, answer ,topic }` from a question and an answer
 
 ```python
 from ais_wordnet_sim import generate_category
 question = 'Thế lực thù đich có những âm mưu gì'
 answer = 'Âm mưu phá hoại nhà nước'
-generate_category(question, answer)
+# default limit = 1000
+generate_category(question, answer, topic, limit=5)
 ```
 
 ### Get all categories
@@ -44,7 +46,7 @@ from ais_wordnet_sim import get_category_data
 result = get_category_data()
 result
 
->>> [{'_id': ObjectId('5d86f35b944d00e06eb3a76b'), 'question_list': ['thế lực thù đich có những âm mưu gì', 'thế lực thù đich có những thủ đoạn gì', 'thế lực thù đich có những mưu kế gì', 'thế lực thù đich có những mưu mẹo gì', 'thế lực thù đich có những mưu mô gì', 'thế lực thù đich có những mưu đồ gì', 'thế lực thù đich có những mánh khóe gì', 'thế lực thù đich có những kế sách gì', 'thế lực thù đich sở hữu những âm mưu gì', 'thế lực thù đich sở hữu những thủ đoạn gì', 'thế lực thù đich sở hữu những mưu kế gì', 'thế lực thù đich sở hữu những mưu mẹo gì', 'thế lực thù đich sở hữu những mưu mô gì', 'thế lực thù đich sở hữu những mưu đồ gì', 'thế lực thù đich sở hữu những mánh khóe gì', 'thế lực thù đich sở hữu những kế sách gì'], 'answer': 'Âm mưu phá hoại nhà nước'}]
+>>> [{'_id': ObjectId('5d86f35b944d00e06eb3a76b'), 'question_list': ['thế lực thù đich có những âm mưu gì', 'thế lực thù đich có những thủ đoạn gì', 'thế lực thù đich có những mưu kế gì', 'thế lực thù đich có những mưu mẹo gì', 'thế lực thù đich có những mưu mô gì'], 'answer': 'Âm mưu phá hoại nhà nước'}]
 ```
 
 ### Create Synonyms database from excel file
@@ -60,4 +62,12 @@ from ais_wordnet_sim import add_synonyms_excel
 file = 'wordnet.xlsx'
 add_synonyms_excel(file)
 ```
-# ais-wordnet-sim
+
+### Enrich AIML File
+
+Create an enriched AIML file from original AIML file
+
+```python
+from ais_wordnet_sim import aiml_enrich
+aiml_enrich('original.aiml', 'enriched.aiml')
+```

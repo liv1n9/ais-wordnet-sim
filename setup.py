@@ -5,7 +5,7 @@ with open('README.md', 'r') as fh:
 
 setuptools.setup(
     name='ais-wordnet-sim',
-    version='1.5',
+    version='2.0.0',
     author='Tan Nguyen',
     author_email='livw08@gmail.com',
     description='AIS Wordnet tool',
