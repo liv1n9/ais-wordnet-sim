@@ -1,6 +1,6 @@
 from pymongo import MongoClient
 from urllib.parse import quote
-from .model import Word, Synonym, Category
+from .model import Word, Synonym, Category, QuestionAnswer
 from .config import USERNAME, PASSWORD, CONNECTION_STRING, DATABASE_NAME
 
 class Service:
@@ -65,6 +65,20 @@ class CategoriesService(Service):
     def insert_one(self, question_list, answer, topic):
         category_object = Category(question_list, answer, topic)
         self.collection.insert_one(category_object.to_json())
+
+    def find(self):
+        return self.collection.find()
+
+#Minh edit----
+class QuestionAnswersService(Service):
+    COLLECTION_NAME = 'questionanswers'
+
+    def __init__(self):
+        super().__init__()
+
+    def insert_one(self, text_question_as_list, answer, topic):
+        question_answer_object = QuestionAnswer(text_question_as_list,answer,topic)
+        self.collection.insert_one(question_answer_object.to_json())
 
     def find(self):
         return self.collection.find()
