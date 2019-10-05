@@ -44,8 +44,7 @@ class Classifier:
         '''
         readCSV = csv.DictReader(csv_file)
         current_tuple = []
-        for row in readCSV:
-            current_tuple = 
+        
         pass
 
     def get_new_qa_from_web(self):
