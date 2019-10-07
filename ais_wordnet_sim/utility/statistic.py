@@ -19,8 +19,9 @@ class Statistic:
     def count_category(self,_location):        
         num_cagetory = 0
         for each_file in os.listdir(_location):
-            _root = ElementTree.parse(os.path.join(location,each_file)).getroot()
-            num_cagetory += len(_root)
+            if each_file.endswith('.aiml'):
+                _root = ElementTree.parse(os.path.join(_location,each_file)).getroot()
+                num_cagetory += len(_root)
         return num_cagetory
 
     
