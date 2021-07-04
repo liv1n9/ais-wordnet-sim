@@ -22,3 +22,10 @@ class Category(Model):
         self.answer = answer
         self.topic = topic
 
+#Minh edit---
+class QuestionAnswer(Model):
+    def __init__(self,text_question_as_list,text_answer,topic):
+        self.text_question_as_list = text_question_as_list
+        self.text_answer = text_answer
+        self.topic = topic
+        pass

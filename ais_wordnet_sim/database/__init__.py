@@ -1,1 +1,1 @@
-from .service import WordsService, SynonymsService, CategoriesService
+from .service import WordsService, SynonymsService, CategoriesService, QuestionAnswersService
